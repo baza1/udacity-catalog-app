@@ -1,0 +1,31 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+    <br />
+    <div class="card">
+        <div class="row banner menu">
+            <div class="col-md-12 col-md-offset-1 padding-none">
+                <div class="card-header titleCard">Delete Item</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-1 padding-top">
+                    <form action="#" method="post">
+                        <p class="display-5 font-weight-bold"> Are you sure you want to delete {{item.title}}? </p>
+                        <button type="submit" class="btn btn-success" id="submit" type="submit">
+                                <i class="fa fa-check"></i> Delete</button>
+                        <a href = '{{url_for('showCategoriesAndItems')}}'>
+                            <button class="btn btn-danger" type="button">
+                                <i class="fa fa-times"></i> Cancel
+                            </button>
+                        </a>        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

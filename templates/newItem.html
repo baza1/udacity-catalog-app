@@ -1,0 +1,60 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+    <br />
+    <div class="card">
+        <div class="row banner menu">
+            <div class="col-md-12 col-md-offset-1 padding-none">
+                <div class="card-header titleCard">New Item</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="flash col-sm-12">
+                    {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {% for message in messages %}
+                        <strong> {{ message }} </strong>
+                        {% endfor %}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endif %}
+                    {% endwith %}
+                </div>
+                <div class="col-md-12 col-md-offset-1 padding-top">
+                    <form action="#" method="post">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" name="title" id="title" placeholder="Title">
+                        </div>
+                        <div class="form-group">
+                            <label for="descrption">Descrption</label>
+                            <textarea class="form-control" name="description" id="descrption" rows="3"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="categories">Categories</label>
+                            <select class="form-control" name="category" id="categories">
+                                {% for o in data %}
+                                <option value="{{ o.id }}">{{ o.name }}</option>
+                                {% endfor %}
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-success" id="submit" type="submit">
+                            <i class="fa fa-check"></i> Create</button>
+                        <a href='{{url_for('showCategoriesAndItems')}}'>
+                            <button class="btn btn-danger" type="button">
+                                <i class="fa fa-times"></i> Cancel
+                            </button>
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

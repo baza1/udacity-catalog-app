@@ -1,0 +1,21 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<div class="container">
+		<a class="navbar-brand" href="#" id="header">Catalog</a>
+
+		<div class="float-right" id="navbarSupportedContent">
+				{%if 'username' not in session %}
+				<form class="form-inline my-2 my-lg-0">
+					<a class="btn btn-outline-success btn-text-color my-0 my-lg-0" href="{{url_for('login')}}">Login</a>
+				</form>
+				{% else %}
+				<form class="form-inline my-2 my-lg-0">
+					<p class="mr-2" style="color: aliceblue">Welcome {{ session['username'] }}</p>
+					<div class="mx-auto">
+						<img class="img-fluid rounded-circle mr-2" width="40" height="40" src="{{ session['picture'] }}" alt="picture">
+					</div> 
+					<a class="btn btn-outline-success btn-text-color my-0 my-lg-0" href="{{url_for('logout')}}">Logout</a>
+				</form>
+				{% endif %}
+		</div>
+	</div>
+</nav>

@@ -1,0 +1,39 @@
+{% extends "main.html" %}
+{% block content %}
+{% include "header.html" %}
+<div class="container">
+    <br />
+    <div class="card">
+        <div class="row banner menu">
+            <div class="col-md-12 col-md-offset-1 padding-none">
+                <div class="card-header titleCard">Information Item</div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-12 col-md-offset-1 padding-top">
+                    <div>
+                        <p class="titleItem">{{ item.title }} </p>
+                        <p class="descriptionItem">{{ item.description }} </p>
+                        {%if 'username' in session %}
+                        <a href="{{url_for('editItem', item_id = item.id)}}">
+                            <button class="m-1 btn btn-primary" aria-label="update Item"><i
+                                    class="fa fa-pencil-square-o"></i> Update</button>
+                        </a>
+                        <a href="{{url_for('deleteItem', item_id = item.id)}}">
+                            <button class="m-1 btn btn-danger" aria-label="delete Item"><i
+                                    class="fa fa-trash-o"></i> Delete</button>
+                        </a>
+                        {% endif %}
+                        <a href="{{url_for('showCategoriesAndItems')}}">
+                            <button class="m-1 btn btn-warning" type="button">
+                                <i class="fa fa-arrow-left"></i> back
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

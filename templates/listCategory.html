@@ -1,0 +1,24 @@
+<div class="col-sm-4">
+    <div class="card">
+        <div class="card-header titleCard">Categories</div>
+        <div class="card-body">
+            <h5 class="card-title titleCategory">List categories</h5>
+            {% if categories !=[] %}
+            <ul class="list-group list-group-flush">
+                {% for i in categories %}
+                <li class="list-group-item">
+                    <div class="row">
+                    <p class="col-8 categoryText">{{i.name}}</p>
+                    <a class="col-4" href="{{url_for('showCategoryItem', category_id = i.id)}}">
+                        <button class="float-right btn btn-secondary" aria-label="show Items of this category"><i
+                                class="fa fa-list-alt"></i></button>
+                    </a>
+                </div>
+                </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
